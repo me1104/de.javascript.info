@@ -1,16 +1,17 @@
-# Arrow functions, the basics
+# Pfeilfunktionen, die Grundlagen
 
-There's another very simple and concise syntax for creating functions, that's often better than Function Expressions.
+Es gibt eine kurze und einfache Syntax für das Erstellen von Funktionen, die oftmals besser als Funktionsausdrücke sind.
 
-It's called "arrow functions", because it looks like this:
+Sie werden Pfeilfunktionen genannt weil sie so aussehen:
 
 ```js
 let func = (arg1, arg2, ...argN) => expression
 ```
 
-...This creates a function `func` that accepts arguments `arg1..argN`, then evaluates the `expression` on the right side with their use and returns its result.
+...Das erzeugt eine Funktion `func` die, die Argumente `arg1..argN` akzeptiert. Danach wird der Ausdruck `expression` auf
+der rechten Seite ausgewertet und das Ergebnis zurückgegeben.
 
-In other words, it's the shorter version of:
+In anderen Worten: es ist die kurze Version von:
 
 ```js
 let func = function(arg1, arg2, ...argN) {
@@ -18,12 +19,12 @@ let func = function(arg1, arg2, ...argN) {
 };
 ```
 
-Let's see a concrete example:
+Sehen wir uns ein Beispiel an:
 
 ```js run
 let sum = (a, b) => a + b;
 
-/* This arrow function is a shorter form of:
+/* Diese Pfeilfunktion ist die kurze Form von:
 
 let sum = function(a, b) {
   return a + b;
@@ -33,41 +34,42 @@ let sum = function(a, b) {
 alert( sum(1, 2) ); // 3
 ```
 
-As you can, see `(a, b) => a + b` means a function that accepts two arguments named `a` and `b`. Upon the execution, it evaluates the expression `a + b` and returns the result.
+Wie zu sehen ist, hat `(a, b) => a + b` die Bedeutung einer Funktion, die 2 Parameter akzeptiert `a` und `b`. Bei der Ausführung, wird
+der Ausdruck `a + b` aufgewertet und das Ergebnis zurückgegeben.
 
-- If we have only one argument, then parentheses around parameters can be omitted, making that even shorter.
+- Wenn es nur ein Argument gibt, können die Klammern um den Parameter entfallen, welches den Audruck weiter verkürzt.
 
-    For example:
+    Zum Beispiel:
 
     ```js run
     *!*
     let double = n => n * 2;
-    // roughly the same as: let double = function(n) { return n * 2 }
+    // ungefähr das Gleiche wie: let double = function(n) { return n * 2 }
     */!*
 
     alert( double(3) ); // 6
     ```
 
-- If there are no arguments, parentheses will be empty (but they should be present):
+- Wenn es kein Argument gibt, ist die Klammer leer (sollte aber vorhanden sein):
 
     ```js run
-    let sayHi = () => alert("Hello!");
+    let sayHi = () => alert("Hallo!");
 
     sayHi();
     ```
 
-Arrow functions can be used in the same way as Function Expressions.
+Pfeilfunktionen können in derselben Weise genutzt werden wie Funktionsausdrücke.
 
-For instance, to dynamically create a function:
+Zum Beispiel, um dynamisch Funktionen zu erzeugen:
 
 ```js run
-let age = prompt("What is your age?", 18);
+let age = prompt("Wie alt bist Du?", 18);
 
 let welcome = (age < 18) ?
-  () => alert('Hello') :
-  () => alert("Greetings!");
+  () => alert('Hallo') :
+  () => alert("Grüße!");
 
-welcome(); // ok now
+welcome(); // jetzt so aufrufbar 
 ```
 
 Arrow functions may appear unfamiliar and not very readable at first, but that quickly changes as the eyes get used to the structure.
